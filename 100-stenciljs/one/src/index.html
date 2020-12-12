@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .side-nav ul {
+        list-style: none;
+      }
+      .side-nav li {
+        margin: 1rem 0;
+      }
+      .side-nav a {
+        text-decoration: none;
+        color: red;
+      }
+    </style>
+    <script type="module" src="/build/one.esm.js"></script>
+    <script nomodule src="/build/one.js"></script>
+  </head>
+  <body>
+    <button id="open-close-side">Open side menu</button>
+    <erp-wc-side-drawer sideTitle="Main Menu">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="/">A Link</a></li>
+          <li><a href="/">Another Link</a></li>
+          <li><a href="/">A third Link</a></li>
+        </ul>
+      </nav>
+    </erp-wc-side-drawer>
+    <script>
+      const side = document.querySelector('erp-wc-side-drawer');
+      const sideButton = document.getElementById('open-close-side');
+      sideButton.addEventListener('click',  () => {
+        if(!side.open) {
+          side.sideOpen();
+        }
+      })
+      /* 
+      setTimeout(() => {
+        //side.sideTitle = 'Side Drawer Menu';
+        side.setAttribute('sideTitle', 'Side Drawer Menu');
+      }, 3000); */
+    </script>
+  </body>
+</html>
